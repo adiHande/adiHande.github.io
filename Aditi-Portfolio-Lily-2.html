@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aditi Hande | Portfolio</title>
+  <link rel="icon" type="image/png" href="ProfileWebsiteFavicon.png" />
+
+  <style>
+    :root {
+      --navy: #082552;
+      --blue: #2f74c9;
+      --sky: #dff1ff;
+      --soft-sky: #f3faff;
+      --white: #ffffff;
+      --line: #d4e7f8;
+      --yellow: #ffd76e;
+      --flower: #ffb6c9;
+      --shadow: 0 16px 35px rgba(8, 37, 82, 0.10);
+
+      /* semantic surface vars (these are what change in dark mode) */
+      --bg1: #eaf7ff;
+      --bg2: #ffffff;
+      --bg3: #eaf7ff;
+      --hero1: #dff1ff;
+      --hero2: #eff9ff;
+      --nav-bg: rgba(242, 250, 255, 0.86);
+      --nav-border: rgba(212, 231, 248, 0.8);
+      --surface: #ffffff;
+      --surface-soft: rgba(255, 255, 255, 0.86);
+      --surface-veil: rgba(255, 255, 255, 0.74);
+      --text-soft: #466486;
+      --text-body: #14335d;
+      --text-body2: #24466e;
+      --shadow-color: rgba(8, 37, 82, 0.10);
+    }
+
+    html[data-mode="dark"] {
+      --navy: #eaf2ff;
+      --blue: #8fc0ff;
+      --sky: #16233f;
+      --soft-sky: #16233f;
+      --white: #16233f;
+      --line: #223257;
+      --flower: #ff9db8;
+
+      --bg1: #05070f;
+      --bg2: #0a1330;
+      --bg3: #05070f;
+      --hero1: #0a1330;
+      --hero2: #060a1a;
+      --nav-bg: rgba(6, 10, 24, 0.86);
+      --nav-border: rgba(34, 50, 87, 0.8);
+      --surface: #101a36;
+      --surface-soft: rgba(16, 26, 54, 0.86);
+      --surface-veil: rgba(16, 26, 54, 0.74);
+      --text-soft: #9fb3d6;
+      --text-body: #dbe7fb;
+      --text-body2: #c3d3ef;
+      --shadow-color: rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .mini-bunny {
+      position: relative;
+      width: 42px;
+      height: 52px;
+    }
+
+    .mini-bunny .mini-ear {
+      position: absolute;
+      top: 0;
+      width: 12px;
+      height: 31px;
+      background: white;
+      border: 2px solid #f2f2f2;
+      border-radius: 50%;
+    }
+
+    .mini-bunny .mini-ear.left { left: 9px; transform: rotate(-6deg); }
+    .mini-bunny .mini-ear.right { right: 9px; transform: rotate(6deg); }
+
+    .mini-bunny .mini-face {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 31px;
+      background: white;
+      border: 2px solid #f2f2f2;
+      border-radius: 90% 90% 80% 80% / 95% 90% 75% 74%;
+    }
+
+    .mini-bunny .mini-eye {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #1f1f1f;
+      border-radius: 50%;
+      top: 12px;
+    }
+
+    .mini-bunny .mini-eye.left { left: 10px; }
+    .mini-bunny .mini-eye.right { right: 10px; }
+
+    .mini-bunny .mini-mouth::before,
+    .mini-bunny .mini-mouth::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 1px;
+      background: #1f1f1f;
+      top: 20px;
+      border-radius: 1px;
+    }
+
+    .mini-bunny .mini-mouth::before {
+      left: 10px;
+      transform: rotate(45deg);
+      transform-origin: right center;
+    }
+
+    .mini-bunny .mini-mouth::after {
+      right: 10px;
+      transform: rotate(-45deg);
+      transform-origin: left center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      opacity: 0.88;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .mobile-menu-button {
+      display: none;
+      border: none;
+      background: var(--navy);
+      color: var(--bg2);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero-wrap {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.95), transparent 27%),
+        radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.75), transparent 25%),
+        linear-gradient(180deg, var(--hero1) 0%, var(--hero2) 100%);
+      border-bottom-left-radius: 46% 8%;
+      border-bottom-right-radius: 46% 8%;
+      transition: background 0.4s ease;
+    }
+
+    html[data-mode="dark"] .hero-wrap {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.06), transparent 27%),
+        radial-gradient(circle at 80% 12%, rgba(255, 255, 255, 0.04), transparent 25%),
+        linear-gradient(180deg, var(--hero1) 0%, var(--hero2) 100%);
+    }
+
+    .hero {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 52px;
+      padding: 56px 0 86px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-veil);
+      font-weight: 700;
+      color: #285c99;
+      margin-bottom: 22px;
+    }
+
+    html[data-mode="dark"] .eyebrow { color: #a8cdff; }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.2;
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      max-width: 500px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--text-body);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1.5px solid var(--navy);
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px var(--shadow-color);
+    }
+
+    .btn.primary {
+      background: var(--navy);
+      color: var(--bg2);
+    }
+
+    .btn.secondary {
+      background: var(--surface-veil);
+      color: var(--navy);
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .socials a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--navy);
+      box-shadow: 0 8px 18px var(--shadow-color);
+      font-weight: 900;
+    }
+
+    /* HERO ART / SCENE */
+    .hero-art {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .scene-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* day / night toggle switch */
+    .mode-toggle {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      line-height: 0;
+    }
+
+    .toggle-track {
+      position: relative;
+      display: block;
+      width: 68px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #bfe0ff 0%, #9dccf3 100%);
+      border: 1px solid var(--line);
+      box-shadow: inset 0 2px 6px rgba(8, 37, 82, 0.15), 0 8px 18px var(--shadow-color);
+      transition: background 0.4s ease;
+      overflow: hidden;
+    }
+
+    html[data-mode="dark"] .toggle-track {
+      background: linear-gradient(180deg, #17224a 0%, #060a1a 100%);
+    }
+
+    .toggle-track .toggle-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      transition: opacity 0.3s ease;
+    }
+
+    .toggle-track .sun { left: 8px; opacity: 1; }
+    .toggle-track .moon { right: 8px; opacity: 0.35; }
+
+    html[data-mode="dark"] .toggle-track .sun { opacity: 0.35; }
+    html[data-mode="dark"] .toggle-track .moon { opacity: 1; }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #fff8de, #ffd76e 70%);
+      box-shadow: 0 2px 6px rgba(8, 37, 82, 0.35);
+      transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), background 0.4s ease;
+    }
+
+    html[data-mode="dark"] .toggle-thumb {
+      transform: translateX(34px);
+      background: radial-gradient(circle at 32% 30%, #fdfdfd, #cfd9ee 60%, #aebbe0 100%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .big-bunny-card {
+      position: relative;
+      width: min(420px, 90vw);
+      height: 450px;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.5), transparent 22%),
+        radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.35), transparent 20%),
+        linear-gradient(180deg, #cfe9ff 0%, #eaf6ff 100%);
+      border: 1px solid #cce6ff;
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.7s ease, border-color 0.7s ease;
+    }
+
+    .big-bunny-card[data-scene="night"] {
+      background:
+        radial-gradient(circle at 74% 16%, rgba(255, 244, 210, 0.18), transparent 20%),
+        radial-gradient(circle at 20% 12%, rgba(160, 150, 255, 0.18), transparent 20%),
+        linear-gradient(180deg, #0c1230 0%, #1a2450 55%, #2c3a70 100%);
+      border-color: #2c3a63;
+    }
+
+    .big-bunny-card:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .big-bunny-card::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: #e6e6ff;
+      filter: blur(4px);
+      bottom: 34px;
+      opacity: 0.9;
+      transition: opacity 0.7s ease, background 0.7s ease;
+    }
+
+    .big-bunny-card[data-scene="night"]::before {
+      background: #3a2f66;
+      opacity: 0.5;
+    }
+
+    .bunny-body {
+      position: absolute;
+      bottom: 72px;
+      width: 172px;
+      height: 145px;
+      background: #9dccf3;
+      border: 4px solid #9dccf3;
+      border-radius: 42% 42% 48% 48% / 50% 50% 42% 42%;
+      z-index: 5;
+    }
+
+    .bunny-body::before,
+    .bunny-body::after {
+      content: "";
+      position: absolute;
+      top: 58px;
+      width: 28px;
+      height: 50px;
+      background: white;
+      border: 4px solid #f2f2f2;
+      border-radius: 24px;
+    }
+
+    .bunny-body::before { left: -26px; transform: rotate(10deg); }
+    .bunny-body::after { right: -26px; transform: rotate(-10deg); }
+
+    .bunny-collar {
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 4px;
+      z-index: 3;
+    }
+
+    .bunny-collar span {
+      width: 24px;
+      height: 16px;
+      background: white;
+      border: 3px solid #f2f2f2;
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .bunny-feet {
+      position: absolute;
+      bottom: 50px;
+      display: flex;
+      gap: 0px;
+      z-index: 4;
+    }
+
+    .bunny-feet span {
+      width: 35px;
+      height: 34px;
+      background: white;
+      border: 4px solid #f2f2f2;
+      border-radius: 50%;
+      transform: rotate(90deg)
+    }
+
+    /* Exact bunny face base */
+    .miffy {
+      position: relative;
+      width: 240px;
+      height: 285px;
+      z-index: 6;
+      animation: floatBunny 4.5s ease-in-out infinite;
+    }
+
+    .ear {
+      position: absolute;
+      top: 0;
+      width: 67px;
+      height: 158px;
+      background: white;
+      border: 5px solid #f2f2f2;
+      border-radius: 50% 50% 50% 50% / 50% 50% 58% 60%;
+      z-index: 0;
+    }
+
+    .ear.left {
+      left: 34px;
+      transform: rotate(-5deg);
+    }
+
+    .ear.right {
+      right: 34px;
+      transform: rotate(5deg);
+    }
+
+    .face {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 214px;
+      height: 180px;
+      background: white;
+      border: 5px solid #f2f2f2;
+      border-radius: 90% 90% 80% 80% / 95% 90% 75% 74%;
+      z-index: 1;
+    }
+
+    .eye {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      background: #1f1f1f;
+      border-radius: 50%;
+      top: 93px;
+    }
+
+    .eye.left { left: 60px; }
+    .eye.right { right: 60px; }
+
+    .mouth {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 12px;
+      transform: translateX(-50%);
+    }
+
+    .mouth::before,
+    .mouth::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 3px;
+      background: #1f1f1f;
+      top: 50px;
+      border-radius: 3px;
+      transform-origin: center;
+    }
+
+    .mouth::before {
+      left: 0;
+      transform: rotate(40deg);
+      transform-origin: right center;
+    }
+
+    .mouth::after {
+      right: 0;
+      transform: rotate(-40deg);
+      transform-origin: left center;
+    }
+
+    /* ===== CLASSIC: standalone flowers ===== */
+    .flower {
+      position: absolute;
+      width: 68px;
+      height: 92px;
+      bottom: 54px;
+      z-index: 6;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease;
+    }
+
+    .big-bunny-card[data-scene="classic"] .flower {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .flower.left { left: 34px; }
+    .flower.right { right: 34px; }
+
+    .flower .stem {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 5px;
+      height: 58px;
+      background: #2b8c77;
+      border-radius: 999px;
+      transform: translateX(-50%);
+    }
+
+    .flower .leaf {
+      position: absolute;
+      bottom: 18px;
+      width: 28px;
+      height: 17px;
+      background: #68c4af;
+      border: 3px solid #68c4af;
+      border-radius: 50% 0 50% 0;
+    }
+
+    .flower .leaf.one { left: 8px; transform: rotate(55deg); }
+    .flower .leaf.two { right: 8px; transform: rotate(55deg); }
+
+    .flower .petal {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: #e6ccff;
+      border: 3px solid #e6ccff;
+      border-radius: 50% 110% / 60% 50%;
+      top: 0;
+      left: 50%;
+    }
+
+    .flower .petal.p1 { transform: translateX(-50%) translateY(-8px); }
+    .flower .petal.p2 { transform: translateX(-50%) translate(-16px, 9px); }
+    .flower .petal.p3 { transform: translateX(-50%) translate(18px, 11px); }
+    .flower .petal.p4 { transform: translateX(-50%) translateY(25px); }
+
+    .flower .center {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffffb3;
+      border: 3px solid #cc99ff;
+      z-index: 2;
+    }
+
+    /*.cloud {
+      position: absolute;
+      width: 92px;
+      height: 42px;
+      background: white;
+      border: 3px solid white;
+      border-radius: 999px;
+      opacity: 0.9;
+      transition: opacity 0.5s ease;
+    }
+
+    .big-bunny-card[data-scene="night"] .cloud {
+      opacity: 1;
+      background: #a8afc2;
+      border-color: #a8afc2;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      bottom: 12px;
+      background: white;
+      border: 3px solid white;
+      border-bottom: none;
+      border-radius: 70% 50% 0 0;
+    }
+
+    .cloud::before { left: 11px; width: 30px; height: 34px; }
+    .cloud::after { right: 12px; width: 36px; height: 40px; }
+    .cloud.one { top: 58px; right: 30px; transform: scale(0.9); }
+    .cloud.two { top: 140px; left: 10px; transform: scale(0.7); }
+
+    .big-bunny-card[data-scene="night"] .cloud::before,
+    .big-bunny-card[data-scene="night"] .cloud::after {
+      background: rgba(255, 255, 255, 0.46);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .big-bunny-card[data-scene="night"] .cloud.one {
+      top: 112px;
+      right: 22px;
+      left: auto;
+      transform: scale(0.65);
+    }
+
+    .big-bunny-card[data-scene="night"] .cloud.two {
+      top: 145px;
+      left: 6px;
+      right: auto;
+      transform: scale(0.64);
+    }*/
+
+    .cloud {
+      position: absolute;
+
+      width: 92px;
+      height: 42px;
+
+      background: white;
+      border: 3px solid white;
+
+      border-radius: 999px;
+
+      opacity: 0.9;
+
+      transition: opacity 0.5s ease;
+    }
+
+
+/* NIGHT CLOUD BASE */
+
+    .big-bunny-card[data-scene="night"] .cloud {
+      opacity: 1;
+
+        background: #9392b3;
+        border-color: #9392b3;
+    }
+
+
+/* CLOUD PUFFS */
+
+.cloud::before,
+.cloud::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 12px;
+
+  background: white;
+
+  border: 3px solid white;
+  border-bottom: none;
+
+  border-radius: 70% 50% 0 0;
+}
+
+
+/* CLOUD PUFF SIZES */
+
+.cloud::before {
+  left: 11px;
+
+  width: 30px;
+  height: 34px;
+}
+
+.cloud::after {
+  right: 12px;
+
+  width: 36px;
+  height: 40px;
+}
+
+
+/* DEFAULT / DAY POSITIONS */
+
+.cloud.one {
+  top: 58px;
+  right: 30px;
+
+  transform: scale(0.9);
+}
+
+.cloud.two {
+  top: 140px;
+  left: 10px;
+
+  transform: scale(0.7);
+}
+
+.cloud.three {
+  top: 78px;
+  left: 42px;
+  transform: scale(0.58);
+}
+
+.cloud.four {
+  top: 64px;
+  left: 68px;
+
+  transform: scale(0.55);
+}
+
+
+/* NIGHT CLOUD PUFF COLORS */
+
+.big-bunny-card[data-scene="night"] .cloud::before,
+.big-bunny-card[data-scene="night"] .cloud::after {
+  background: #9392b3;
+
+  border-color: #9392b3;
+}
+
+
+/* NIGHT CLOUD 1 — TOP RIGHT */
+
+.big-bunny-card[data-scene="night"] .cloud.one {
+  top: 112px;
+
+  right: 22px;
+  left: auto;
+
+  transform: scale(0.65);
+}
+
+
+/* NIGHT CLOUD 2 — LEFT */
+
+.big-bunny-card[data-scene="night"] .cloud.two {
+  top: 60px;
+
+  left: 25px;
+  right: auto;
+
+  transform: scale(0.78);
+}
+
+.cloud.three {
+  display: none;
+}
+
+.big-bunny-card[data-scene="night"] .cloud.three {
+  display: block;
+
+  top: 80px;
+  left: 6px;
+  right: auto;
+
+  transform: scale(0.70);
+}
+
+.big-bunny-card[data-scene="night"] .cloud.four {
+  display: none;
+}
+
+.big-bunny-card[data-scene="lily"] .cloud.four {
+  display: block;
+}
+
+    /* ===== MOON + STARS + FIREFLIES (night) ===== */
+    .moon {
+      position: absolute;
+      top: 40px;
+      right: 48px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 32%, #fffaea 0%, #ffedb8 55%, #ffd76e 100%);
+      box-shadow: 0 0 26px 10px rgba(255, 231, 168, 0.28);
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 0.6s ease;
+    }
+
+    .moon::before,
+    .moon::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(210, 176, 110, 0.35);
+    }
+
+    .moon::before { width: 12px; height: 12px; top: 12px; left: 10px; }
+    .moon::after { width: 8px; height: 8px; top: 28px; left: 26px; }
+
+    .big-bunny-card[data-scene="night"] .moon { opacity: 1; }
+
+    .star {
+      position: absolute;
+      color: var(--white);
+      color: #f2ede6;
+      font-size: 22px;
+      opacity: 0;
+      animation: twinkle 1.8s ease-in-out infinite alternate;
+      transition: opacity 0.6s ease;
+      z-index: 2;
+    }
+
+    .big-bunny-card[data-scene="night"] .star { opacity: 1; visibility: visible;}
+    .big-bunny-card[data-scene="lily"] .star { opacity: 0 !important; visibility: hidden; }
+    .star.s1 { top: 76px; left: 110px; animation-delay: 0.4s; font-size: 15px;}
+    .star.s2 { top: 168px; right: 92px; animation-delay: 0.6s; }
+    .star.s3 { top: 48px; right: 145px; animation-delay: 1s; }
+    .star.s4 { top: 121px; left: 25px; animation-delay: 0.2s; font-size: 14.8px; }
+    .star.s5 { top: 210px; left: 150px; animation-delay: 0.9s; font-size: 16px; }
+    .star.s6 { top: 92px; right: 75px; animation-delay: 1.2s; font-size: 15px; }
+    .star.s7 { top: 190px; left: 62px; animation-delay: 0.45s; font-size: 13px; }
+    .star.s8 { top: 40px; left: 120px; font-size: 13px; animation-delay: 0.7s; }
+    .star.s9 { top: 220px; right: 15px; font-size: 13px; animation-delay: 0.89s; }
+    .firefly {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff3b0;
+      box-shadow: 0 0 8px 3px rgba(255, 244, 176, 0.7);
+      opacity: 0;
+      z-index: 4;
+      animation: fireflyFloat 5s ease-in-out infinite;
+      transition: opacity 0.6s ease;
+    }
+
+    .big-bunny-card[data-scene="night"] .firefly { opacity: 0.9; visibility: visible}
+    .big-bunny-card[data-scene="lily"] .firefly { opacity: 0; visibility: hidden}
+
+    .firefly.f1 { left: 70px; bottom: 130px; animation-delay: 0s; width: 4px; height: 4px;}
+    .firefly.f2 { right: 60px; bottom: 170px; animation-delay: 1.4s; }
+    .firefly.f3 { left: 47px; top: 183px;  width: 5.5px; height: 5.5px; animation-delay: 0.8s;}
+
+    /* ===== MEADOW (lily field + night ground) ===== */
+    .meadow {
+      position: absolute;
+      left: 50%;
+      bottom: -54px;
+      width: 460px;
+      height: 188px;
+      transform: translateX(-50%);
+      border-radius: 48% 52% 0 0 / 22% 30% 0 0;
+      overflow: hidden;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.4), transparent 22%),
+        radial-gradient(circle at 78% 14%, rgba(255, 255, 255, 0.22), transparent 18%),
+        linear-gradient(180deg, #d9f3c4 0%, #b9e79b 45%, #93ce78 100%);
+      box-shadow: inset 0 12px 22px rgba(255, 255, 255, 0.35);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, filter 0.7s ease;
+    }
+
+    .big-bunny-card[data-scene="lily"] .meadow,
+    .big-bunny-card[data-scene="night"] .meadow {
+      opacity: 1;
+      visibility: visible;
+    }
+
+
+    .big-bunny-card[data-scene="night"] .meadow {
+    filter: none;
+
+    background: linear-gradient(
+        180deg,
+        /*#3b244e 0%,
+        #28192f 58%,
+        #1b1422 100%*/
+        #24172f 0%,
+        #1b1422 58%,
+        #120e18 100%
+    );
+
+    box-shadow: none;
+    }
+
+    .meadow::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      bottom: 26px;
+      width: 60%;
+      height: 70px;
+      border-radius: 55% 45% 0 0 / 42% 48% 0 0;
+      background: linear-gradient(180deg, #aee18e 0%, #8ac96c 100%);
+      opacity: 0.85;
+    }
+
+    .meadow::after {
+      content: "";
+      position: absolute;
+      right: -8%;
+      bottom: 14px;
+      width: 56%;
+      height: 62px;
+      border-radius: 48% 52% 0 0 / 36% 44% 0 0;
+      background: linear-gradient(180deg, #a3db83 0%, #80c261 100%);
+      opacity: 0.9;
+    }
+
+    /*.big-bunny-card[data-scene="night"] .meadow::before {
+    background: linear-gradient(
+        180deg,
+        /*#2a1a38 0%,
+        #201527 100%*/
+        /*#3a2947 0%,
+        #2d2038 100%
+    );
+    */
+
+    /*opacity: 0.90;
+    }*/
+
+    .big-bunny-card[data-scene="night"] .meadow::before {
+        content: "";
+        position: absolute;
+
+        left: -4%;
+        bottom: 28px;
+
+        width: 70%;
+        height: 99px;
+
+        border-radius: 50% 45% 0 0 / 60% 50% 0 0;
+
+        background: linear-gradient(
+            180deg,
+            #281a32 0%,
+  #1f1527 100%
+
+        );
+
+        opacity: 0.90;
+        }
+
+    .big-bunny-card[data-scene="night"] .meadow::after {
+        content: "";
+        position: absolute;
+
+        right: -6%;
+        bottom: 18px;
+
+        width: 60%;
+        height: 80px;
+        border-radius: 90% 90% 80% 80% / 95% 90% 75% 74%;
+        /*border-radius: 70% 52% 40% 40% / 60% 46% 30% 30%;*/
+
+        background: linear-gradient(
+            180deg,
+            #2d1f38 0%,
+  #23182c 100%
+        );
+
+        opacity: 0.94;
+        }
+
+
+
+    /*.big-bunny-card[data-scene="night"] .meadow::after {
+    background: linear-gradient(
+        180deg,
+        /*#24172f 0%,
+        #1a121f 100%*/
+        /*#342540 0%,
+        #281d32 100%
+    );*/
+
+    /*opacity: 0.94;
+    }*/
+
+        /* ===== HIDE ALL DAYTIME VEGETATION IN NIGHT SCENE ===== */
+
+    .big-bunny-card[data-scene="night"] .flower,
+    .big-bunny-card[data-scene="night"] .bush,
+    .big-bunny-card[data-scene="night"] .field-lily,
+    .big-bunny-card[data-scene="night"] .blade {
+    display: none !important;
+    }
+
+    .bush {
+      position: absolute;
+      background:
+        radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.55), transparent 42%),
+        linear-gradient(155deg, var(--bl, #cdeeae) 0%, var(--bd, #9dd77e) 100%);
+    }
+
+    .bush.b1 {
+      left: -18px; bottom: 78px; width: 132px; height: 92px;
+      border-radius: 58% 42% 55% 45% / 46% 55% 42% 54%;
+      --bl: #cdeeae; --bd: #9cd57b;
+      transform: rotate(-4deg);
+      opacity: 0.82;
+      filter: blur(0.4px);
+      z-index: 1;
+    }
+
+    .bush.b2 {
+      right: -22px; bottom: 70px; width: 142px; height: 98px;
+      border-radius: 45% 55% 48% 52% / 55% 45% 52% 48%;
+      --bl: #d4f0b6; --bd: #a2d980;
+      transform: rotate(5deg);
+      opacity: 0.85;
+      filter: blur(0.4px);
+      z-index: 1;
+    }
+
+    .bush.b3 {
+      left: 40px; bottom: 14px; width: 108px; height: 76px;
+      border-radius: 52% 48% 58% 42% / 48% 58% 40% 55%;
+      --bl: #bfe89e; --bd: #86c261;
+      transform: rotate(-2deg);
+      z-index: 3;
+    }
+
+    .bush.b4 {
+      right: 30px; bottom: 8px; width: 118px; height: 82px;
+      border-radius: 48% 52% 44% 56% / 55% 46% 56% 44%;
+      --bl: #c6ec9f; --bd: #8dc865;
+      transform: rotate(3deg);
+      z-index: 3;
+    }
+
+    .bush.b5 {
+      left: 158px; bottom: 2px; width: 96px; height: 66px;
+      border-radius: 55% 45% 50% 50% / 50% 55% 44% 50%;
+      --bl: #d0f0ac; --bd: #97cf6f;
+      transform: rotate(-3deg);
+      z-index: 4;
+    }
+
+    .bush.b6 {
+      left: 6px; bottom: 118px; width: 66px; height: 48px;
+      border-radius: 55% 45% 52% 48% / 48% 52% 45% 55%;
+      --bl: #dcf3c1; --bd: #b3dd93;
+      transform: rotate(6deg);
+      opacity: 0.7;
+      filter: blur(0.6px);
+      z-index: 0;
+    }
+
+    .blade {
+      position: absolute;
+      bottom: -3px;
+      width: 6px;
+      height: 24px;
+      border-radius: 6px 6px 0 0;
+      transform-origin: bottom center;
+      z-index: 2;
+    }
+
+    .blade.gl1 { left: 8%;  height: 22px; background: linear-gradient(180deg,#9adf76,#74bb50); transform: rotate(-10deg); }
+    .blade.gl2 { left: 16%; height: 30px; background: linear-gradient(180deg,#8ed968,#6cb247); transform: rotate(6deg); }
+    .blade.gl3 { left: 27%; height: 20px; background: linear-gradient(180deg,#a5e582,#7fc659); transform: rotate(-4deg); }
+    .blade.gl4 { left: 39%; height: 26px; background: linear-gradient(180deg,#93dc6c,#6fb84a); transform: rotate(12deg); }
+    .blade.gl5 { left: 52%; height: 21px; background: linear-gradient(180deg,#a2e37e,#7bc456); transform: rotate(-8deg); }
+    .blade.gl6 { left: 63%; height: 28px; background: linear-gradient(180deg,#8dd867,#69af45); transform: rotate(4deg); }
+    .blade.gl7 { left: 75%; height: 23px; background: linear-gradient(180deg,#9fe17b,#78c153); transform: rotate(-6deg); }
+    .blade.gl8 { left: 86%; height: 27px; background: linear-gradient(180deg,#93dc6c,#6fb84a); transform: rotate(9deg); }
+    .blade.gl9 { left: 93%; height: 19px; background: linear-gradient(180deg,#a5e582,#7fc659); transform: rotate(-3deg); }
+
+    /* floating lily (used across the meadow) */
+    .field-lily {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      z-index: 5;
+    }
+
+    .field-lily .petal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 31px;
+      background: linear-gradient(180deg, #fff8fb 0%, #ffdce9 45%, #f6a9c8 100%);
+      border: 1.2px solid #ea9aba;
+      clip-path: polygon(50% 0%, 88% 24%, 76% 82%, 50% 100%, 24% 82%, 12% 24%);
+      border-radius: 72% 72% 14% 14%;
+      transform-origin: 50% 88%;
+    }
+
+    .field-lily .petal::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 18%;
+      width: 1px;
+      height: 60%;
+      background: rgba(180, 88, 124, 0.18);
+      border-radius: 999px;
+      transform: translateX(-50%);
+    }
+
+    .field-lily .p1 { transform: translate(-50%, -92%) rotate(0deg); }
+    .field-lily .p2 { transform: translate(-50%, -90%) rotate(60deg); }
+    .field-lily .p3 { transform: translate(-50%, -90%) rotate(120deg); }
+    .field-lily .p4 { transform: translate(-50%, -88%) rotate(180deg); }
+    .field-lily .p5 { transform: translate(-50%, -90%) rotate(240deg); }
+    .field-lily .p6 { transform: translate(-50%, -90%) rotate(300deg); }
+
+    .field-lily .center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      background: #ffe5ef;
+      border: 1px solid #efb7ca;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 7;
+    }
+
+    .field-lily .stamen {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 2px;
+      height: 15px;
+      background: #fff2f6;
+      border-radius: 999px;
+      transform-origin: bottom center;
+      z-index: 6;
+    }
+
+    .field-lily .stamen::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      width: 5px;
+      height: 3px;
+      background: #b86b84;
+      border-radius: 999px;
+      transform: translateX(-50%);
+    }
+
+    .field-lily .s1 { transform: translate(-50%, -84%) rotate(-24deg); }
+    .field-lily .s2 { transform: translate(-50%, -87%) rotate(0deg); }
+    .field-lily .s3 { transform: translate(-50%, -84%) rotate(24deg); }
+
+    .field-lily.no-stamens .petal {
+      width: 14px;
+      height: 29px;
+      background: linear-gradient(180deg, #fff9fc 0%, #ffd8e8 50%, #f2a6c5 100%);
+    }
+
+    .field-lily.no-stamens .center {
+      width: 7px;
+      height: 7px;
+      background: #ffeaf2;
+      border: 1px solid #efbfd0;
+    }
+
+    .ml1 { left: 20px;  bottom: 96px;  transform: scale(0.62) rotate(-8deg);  opacity: 0.78; z-index: 2; }
+    .ml2 { left: 78px;  bottom: 130px; transform: scale(0.5)  rotate(10deg);  opacity: 0.65; z-index: 2; }
+    .ml3 { left: 52px;  bottom: 24px;  transform: scale(0.92) rotate(-5deg); }
+    .ml4 { left: 138px; bottom: 6px;   transform: scale(1.05) rotate(6deg); }
+    .ml5 { left: 214px; bottom: 30px;  transform: scale(0.8)  rotate(-10deg); }
+    .ml6 { right: 96px; bottom: 10px;  transform: scale(1)    rotate(8deg); }
+    .ml7 { right: 40px; bottom: 34px;  transform: scale(0.86) rotate(-6deg); }
+    .ml8 { right: 130px; bottom: 108px; transform: scale(0.55) rotate(12deg); opacity: 0.7; z-index: 2; }
+
+    /* SECTIONS */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      min-height: 250px;
+      padding: 28px;
+      border-radius: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px var(--shadow-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.4s ease, border-color 0.4s ease;
+    }
+
+    .project-card > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px var(--shadow-color);
+      align-content: center;
+    }
+
+    .project-icon {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: var(--soft-sky);
+      border: 1px solid var(--line);
+      font-size: 2.4rem;
+      margin-bottom: 18px;
+      align-content: center;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: var(--text-body2);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .project-card a {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .info-card {
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px var(--shadow-color);
+      border-radius: 30px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    .info-card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      right: -60px;
+      bottom: -70px;
+      background: rgba(190, 224, 255, 0.45);
+    }
+
+    html[data-mode="dark"] .info-card::after {
+      background: rgba(80, 110, 190, 0.18);
+    }
+
+    .info-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .timeline-item {
+      padding-left: 18px;
+      border-left: 4px solid #aed8ff;
+    }
+
+    html[data-mode="dark"] .timeline-item { border-left-color: #35508c; }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item .date {
+      font-size: 0.88rem;
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item ul {
+      padding-left: 18px;
+      color: var(--text-body2);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    /* ===== FULL-WIDTH WORK EXPERIENCE ===== */
+    .work-experience-section {
+      padding: 84px 0 34px;
+    }
+
+    .experience-heading {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .experience-heading h2 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.08;
+      margin-bottom: 12px;
+    }
+
+    .experience-heading p {
+      color: var(--text-soft);
+      font-size: 1.04rem;
+      line-height: 1.7;
+    }
+
+    .experience-panel {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255, 182, 201, 0.20), transparent 34%),
+        linear-gradient(180deg, var(--surface-soft), var(--soft-sky));
+      box-shadow: 0 16px 35px var(--shadow-color);
+    }
+
+    html[data-mode="dark"] .experience-panel {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255, 157, 184, 0.10), transparent 34%),
+        linear-gradient(180deg, var(--surface-soft), var(--soft-sky));
+    }
+
+    .experience-list {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 18px;
+    }
+
+    .experience-entry {
+      display: grid;
+      grid-template-columns: minmax(170px, 210px) minmax(0, 1fr);
+      gap: 30px;
+      padding: 30px;
+      border: 1px solid rgba(174, 216, 255, 0.78);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 10px 24px rgba(8, 37, 82, 0.06);
+      backdrop-filter: blur(4px);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.4s ease;
+    }
+
+    html[data-mode="dark"] .experience-entry {
+      border-color: rgba(80, 110, 190, 0.38);
+      background: rgba(16, 26, 54, 0.84);
+    }
+
+    .experience-entry:hover {
+      transform: translateY(-3px);
+      border-color: var(--blue);
+    }
+
+    .experience-meta {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+    }
+
+    .experience-date {
+      color: var(--blue);
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .experience-location {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .experience-content {
+      position: relative;
+      padding-left: 32px;
+      border-left: 3px solid #aed8ff;
+    }
+
+    html[data-mode="dark"] .experience-content {
+      border-left-color: #4565a5;
+    }
+
+    .experience-content::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -9px;
+      width: 15px;
+      height: 15px;
+      border: 4px solid var(--surface);
+      border-radius: 50%;
+      background: var(--flower);
+      box-shadow: 0 0 0 3px rgba(255, 182, 201, 0.22);
+    }
+
+    .experience-content h3 {
+      font-size: 1.36rem;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .experience-employer {
+      display: block;
+      margin-bottom: 15px;
+      color: var(--blue);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .experience-content ul {
+      padding-left: 20px;
+      color: var(--text-body2);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .experience-content li + li {
+      margin-top: 7px;
+    }
+
+    .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .experience-tag {
+      padding: 6px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* Large lilies sit between the three entries, behind the text. */
+    .experience-lily-wrap {
+      position: absolute;
+      z-index: 3;
+      width: 190px;
+      height: 190px;
+      pointer-events: none;
+      opacity: 0.30;
+      filter: saturate(0.88);
+    }
+
+    html[data-mode="dark"] .experience-lily-wrap {
+      opacity: 0.18;
+      filter: saturate(0.7) brightness(1.12);
+    }
+
+    .experience-lily-wrap.one {
+      top: 34%;
+      right: -30px;
+    }
+
+    .experience-lily-wrap.two {
+      top: 67%;
+      left: -28px;
+    }
+
+    .experience-lily-wrap .field-lily {
+      left: 50%;
+      top: 50%;
+      animation: experienceBloom 7s ease-in-out infinite;
+    }
+
+    .experience-lily-wrap.two .field-lily {
+      animation-delay: -3.5s;
+    }
+
+    @keyframes experienceBloom {
+      0%, 100% { transform: translate(-50%, -50%) scale(2.35) rotate(-7deg); }
+      45% { transform: translate(-50%, -50%) scale(3.05) rotate(2deg); }
+      65% { transform: translate(-50%, -50%) scale(2.92) rotate(5deg); }
+    }
+
+    .learning-section {
+      padding: 34px 0 72px;
+    }
+
+    .learning-card > h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .learning-card .learning-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .learning-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .learning-row {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: var(--soft-sky);
+      border: 1px solid var(--line);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    .learning-row .bubble {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: 1.35rem;
+    }
+
+    .learning-row h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .learning-row p {
+      color: var(--text-soft);
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+
+    .contact {
+      padding: 62px 0 34px;
+      text-align: center;
+    }
+
+    .contact-card {
+      background: linear-gradient(180deg, var(--surface-soft), var(--soft-sky));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 34px;
+      padding: 34px;
+      display: grid;
+      gap: 18px;
+      justify-items: center;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    .contact-card h2 {
+      font-size: 2.2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .contact-links .btn {
+      background: #082552;
+      border-color: #082552;
+      color: #ffffff;
+    }
+
+    .contact-links .btn:hover {
+      background: #0b326e;
+      border-color: #0b326e;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(8, 37, 82, 0.28);
+    }
+
+    html[data-mode="dark"] .contact-links .btn {
+      background: #12366f;
+      border-color: #234c88;
+      color: #ffffff;
+    }
+
+    html[data-mode="dark"] .contact-links .btn:hover {
+      background: #194582;
+      border-color: #3765a1;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.38);
+    }
+
+    footer {
+      padding: 24px 0;
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: none;
+      background: var(--navy);
+      color: var(--bg2);
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 12px 22px rgba(8, 37, 82, 0.25);
+      display: none;
+    }
+
+    .back-to-top.show {
+      display: block;
+    }
+
+    @keyframes floatBunny {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.45; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1.1); }
+    }
+
+    @keyframes fireflyFloat {
+      0%   { transform: translate(0, 0); opacity: 0.4; }
+      25%  { transform: translate(10px, -14px); opacity: 0.9; }
+      50%  { transform: translate(-6px, -22px); opacity: 0.5; }
+      75%  { transform: translate(-14px, -6px); opacity: 0.95; }
+      100% { transform: translate(0, 0); opacity: 0.4; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border-radius: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        min-height: auto;
+      }
+
+      .intro {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions,
+      .socials {
+        justify-content: center;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-entry {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .experience-content {
+        padding-left: 26px;
+      }
+
+      .learning-card .learning-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page,
+      .nav-inner,
+      .hero {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .big-bunny-card {
+        height: 400px;
+      }
+
+      .miffy {
+        transform: scale(0.86);
+      }
+
+      .miffy {
+        animation: none;
+      }
+
+      .hero-wrap {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .work-experience-section {
+        padding-top: 64px;
+      }
+
+      .experience-panel {
+        padding: 12px;
+        border-radius: 26px;
+      }
+
+      .experience-entry {
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      .experience-lily-wrap {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .experience-lily-wrap .field-lily,
+      .experience-entry {
+        animation: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Aditi Hande home">
+        <div class="mini-bunny" aria-hidden="true">
+          <div class="mini-ear left"></div>
+          <div class="mini-ear right"></div>
+          <div class="mini-face">
+            <div class="mini-eye left"></div>
+            <div class="mini-eye right"></div>
+            <div class="mini-mouth"></div>
+          </div>
+        </div>
+        <span>Aditi Hande</span>
+      </a>
+
+      <button class="mobile-menu-button" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#learning">Learning</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-wrap" id="home">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">🌼 Building • Learning • Growing</div>
+          <h1>Hi, I'm<br />Aditi Hande</h1>
+          <p class="subtitle">Computer Science Student & Developer</p>
+          <p class="intro">
+            I enjoy building practical software, exploring data, and turning ideas into clean,
+            useful projects. I’m interested in software development, data analytics, AI, ML and
+            human-centered technology.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View My Work →</a>
+            <a class="btn primary" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="socials" aria-label="Social links">
+            <a href="https://github.com/adiHande" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+            <a href="https://www.linkedin.com/in/aditi-hande-312a89270" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+            <a href="mailto:aditi.n.hande@gmail.com" aria-label="Email">✉</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="scene-controls">
+            <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+              <span class="toggle-track">
+                <span class="toggle-icon sun">☀️</span>
+                <span class="toggle-icon moon">🌙</span>
+                <span class="toggle-thumb"></span>
+              </span>
+            </button>
+          </div>
+
+          <div
+            class="big-bunny-card"
+            id="sceneCard"
+            data-scene="lily"
+            role="img"
+            aria-label="A white bunny in a lily field that changes between day and night"
+          >
+            <div class="cloud one"></div>
+            <div class="cloud two"></div>
+            <div class="cloud three"></div>
+            <div class="cloud four"></div>
+
+            <div class="moon"></div>
+            <div class="star s1">✦</div>
+            <div class="star s2">✦</div>
+            <div class="star s3">✦</div>
+            <div class="star s4">✦</div>
+            <div class="star s5">✦</div>
+            <div class="star s6">✦</div>
+            <div class="star s7">✦</div>
+            <div class="star s8">✦</div>
+            <div class="star s9">✦</div>
+            <div class="firefly f1"></div>
+            <div class="firefly f2"></div>
+            <div class="firefly f3"></div>
+
+            <div class="flower left">
+              <div class="stem"></div>
+              <div class="leaf one"></div>
+              <div class="leaf two"></div>
+              <div class="petal p1"></div>
+              <div class="petal p2"></div>
+              <div class="petal p3"></div>
+              <div class="petal p4"></div>
+              <div class="center"></div>
+            </div>
+
+            <div class="flower right">
+              <div class="stem"></div>
+              <div class="leaf one"></div>
+              <div class="leaf two"></div>
+              <div class="petal p1"></div>
+              <div class="petal p2"></div>
+              <div class="petal p3"></div>
+              <div class="petal p4"></div>
+              <div class="center"></div>
+            </div>
+
+            <div class="meadow">
+              <div class="bush b6"></div>
+              <div class="bush b1"></div>
+              <div class="bush b2"></div>
+
+              <div class="blade gl1"></div>
+              <div class="blade gl2"></div>
+              <div class="blade gl3"></div>
+              <div class="blade gl4"></div>
+              <div class="blade gl5"></div>
+              <div class="blade gl6"></div>
+              <div class="blade gl7"></div>
+              <div class="blade gl8"></div>
+              <div class="blade gl9"></div>
+
+              <div class="bush b3"></div>
+              <div class="bush b4"></div>
+              <div class="bush b5"></div>
+
+              <div class="field-lily ml1"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="center"></div></div>
+              <div class="field-lily ml2 no-stamens"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="center"></div></div>
+              <div class="field-lily ml3"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="stamen s1"></div><div class="stamen s2"></div><div class="stamen s3"></div><div class="center"></div></div>
+              <div class="field-lily ml4"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="stamen s1"></div><div class="stamen s2"></div><div class="stamen s3"></div><div class="center"></div></div>
+              <div class="field-lily ml5 no-stamens"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="center"></div></div>
+              <div class="field-lily ml6"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="stamen s1"></div><div class="stamen s2"></div><div class="stamen s3"></div><div class="center"></div></div>
+              <div class="field-lily ml7 no-stamens"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="center"></div></div>
+              <div class="field-lily ml8"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="center"></div></div>
+            </div>
+
+            <div class="miffy">
+              <div class="ear left"></div>
+              <div class="ear right"></div>
+              <div class="face">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+                <div class="mouth"></div>
+              </div>
+            </div>
+
+            <div class="bunny-body">
+              <div class="bunny-collar"><span></span><span></span></div>
+            </div>
+            <div class="bunny-feet"><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="page">
+        <div class="section-heading">
+          <h2>🌼 Featured Projects 🌼</h2>
+          <p>A few projects I’ve built across software development, data analytics, AI, and systems.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div>
+              <div class="project-icon">🎬</div>
+              <h3>Movie Theater System</h3>
+              <p>Python-based movie theater booking system with movie selection, seat booking, ticket pricing, and ticket generation.</p>
+            </div>
+            <a href="https://github.com/adiHande/Movie-Theater-System">View Project →</a>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-icon">📊</div>
+              <h3>Boston Area Crime Analytics</h3>
+              <p>Data analytics project exploring crime trends, patterns, categories, and visual insights.</p>
+            </div>
+            <a href="https://github.com/adiHande/Chicago_Crime_Analysis">View Project →</a>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-icon">🧩</div>
+              <h3>8-Puzzle Solver</h3>
+              <p>Python AI search project using BFS, DFS, UCS, Greedy, A*, DLS, and IDS.</p>
+            </div>
+            <a href="#">View Project →</a>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-icon">⌨️</div>
+              <h3>Mini Shell Program</h3>
+              <p>Partial Linux-like shell in C with directory navigation, file operations, and command execution.</p>
+            </div>
+            <a href="https://github.com/adiHande/OS-Shell">View Project →</a>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-icon">✈️</div>
+              <h3>Airline Reservation System</h3>
+              <p>Terminal-based airline seat reservation system in C with multiple seat layouts and file-based storage.</p>
+            </div>
+            <a href="https://github.com/adiHande/AirlineSeatReservationSystem">View Project →</a>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <div class="project-icon">🍽️</div>
+              <h3>Restaurant Ordering System</h3>
+              <p>Python and MySQL ordering system with menu sections, receipts, and database storage.</p>
+            </div>
+            <a href="https://github.com/adiHande/RestaurantOrderingSystem_with_MySQLDatabase">View Project →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-experience-section" id="experience">
+      <div class="page">
+        <div class="experience-heading">
+          <h2>💼 Work Experience</h2>
+          <p>Research, computer vision, and student support experience across USDA-ARS, UTARI, and UTA.</p>
+        </div>
+
+        <div class="experience-panel lily-layout">
+          <div class="experience-lily-wrap one" aria-hidden="true">
+            <div class="field-lily">
+              <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div>
+              <div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div>
+              <div class="stamen s1"></div><div class="stamen s2"></div><div class="stamen s3"></div><div class="center"></div>
+            </div>
+          </div>
+          <div class="experience-lily-wrap two" aria-hidden="true">
+            <div class="field-lily no-stamens">
+              <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div>
+              <div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="center"></div>
+            </div>
+          </div>
+
+          <div class="experience-list">
+            <article class="experience-entry">
+              <div class="experience-meta">
+                <span class="experience-date">Jul 2026 – Aug 2026</span>
+                <span class="experience-location">Fort Worth, Texas</span>
+              </div>
+              <div class="experience-content">
+                <h3>Undergraduate Research Assistant</h3>
+                <span class="experience-employer">UT Arlington Research Institute (UTARI)</span>
+                <ul>
+                  <li>Compared computer-vision auto-labeling tools for aerial and ground imagery.</li>
+                  <li>Built MATLAB workflows using CLIP for image-level filtering and Grounding DINO for bounding-box prompts.</li>
+                  <li>Corrected and augmented datasets in Roboflow and trained and validated object-detection models.</li>
+                </ul>
+                <div class="experience-tags" aria-label="Tools used">
+                  <span class="experience-tag">MATLAB</span><span class="experience-tag">CLIP</span>
+                  <span class="experience-tag">Grounding DINO</span><span class="experience-tag">Roboflow</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="experience-entry">
+              <div class="experience-meta">
+                <span class="experience-date">May 2026 – Jul 2026</span>
+                <span class="experience-location">USDA Agricultural Research Service</span>
+              </div>
+              <div class="experience-content">
+                <h3>USDA-ARS Research Intern</h3>
+                <span class="experience-employer">Smart Agriculture Research Center (UT Arlington)</span>
+                <ul>
+                  <li>Built a parametric synthetic-dataset pipeline (Python, rembg, SAM, depth maps, simulated weather) to systematically test YOLO detection under varied conditions.</li>
+                  <li>Identified low contrast between animal and background as a leading cause of false positives.</li>
+                  <li>Trained and evaluated YOLO26n and YOLO12n in PyTorch on 8,000+ field images and 400+ synthetic images, reaching 96.3% precision and 85.8% mAP@0.5.</li>
+                </ul>
+                <div class="experience-tags" aria-label="Tools used">
+                  <span class="experience-tag">Python</span><span class="experience-tag">YOLO</span>
+                  <span class="experience-tag">PyTorch</span><span class="experience-tag">SAM</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="experience-entry">
+              <div class="experience-meta">
+                <span class="experience-date">Aug 2025 – Dec 2025</span>
+                <span class="experience-location">University of Texas at Arlington</span>
+              </div>
+              <div class="experience-content">
+                <h3>Undergraduate Teaching Assistant</h3>
+                <span class="experience-employer">UNIV-EN 1131 First-Year Seminar</span>
+                <ul>
+                  <li>Supported 150+ students across two sections with classroom activities and campus-resource questions.</li>
+                  <li>Graded 15+ assignments per student and reviewed gradebook records for missing or inconsistent entries.</li>
+                  <li>Managed attendance and course records using Canvas, Microsoft Forms, Excel, and Attendance+.</li>
+                </ul>
+                <div class="experience-tags" aria-label="Tools used">
+                  <span class="experience-tag">Canvas</span><span class="experience-tag">Microsoft Forms</span>
+                  <span class="experience-tag">Excel</span><span class="experience-tag">Attendance+</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning-section" id="learning">
+      <div class="page">
+        <article class="info-card learning-card">
+          <h2>📚 Currently Learning</h2>
+          <div class="learning-list">
+            <div class="learning-row">
+              <div class="bubble">📊</div>
+              <div>
+                <h3>Data Analytics & Engineering</h3>
+                <p>Exploring data mining and cleaning with Pandas, NumPy, SQL, Excel, and dashboards.</p>
+              </div>
+            </div>
+
+            <div class="learning-row">
+              <div class="bubble">⚙️</div>
+              <div>
+                <h3>Machine Learning</h3>
+                <p>Learning the underlying basics of machine learning — how models work and are built — using PyTorch and other ML libraries.</p>
+              </div>
+            </div>
+
+            <div class="learning-row">
+              <div class="bubble">🤖</div>
+              <div>
+                <h3>AI & Agentic Systems</h3>
+                <p>Learning how AI models are connected into systems and workflows that can act and automate tasks on their own.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="page">
+        <div class="contact-card">
+          <h2>Let’s connect!</h2>
+          <p>I’m open to internships, research opportunities, technical projects, and collaboration.</p>
+          <div class="contact-links">
+            <a class="btn primary" href="mailto:aditi.n.hande@gmail.com">Email Me</a>
+            <a class="btn primary" href="https://github.com/adiHande" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn primary" href="https://www.linkedin.com/in/aditi-hande-312a89270" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn primary" href="https://drive.google.com/file/d/1H75aLTjAZcHJpWl8fS6feIPHKOoW8Q2L/view?usp=sharing">Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Aditi Hande. Built with curiosity and code.</p>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    const backToTop = document.getElementById("backToTop");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* ===== Day / night scene controller ===== */
+    (function () {
+      const card = document.getElementById("sceneCard");
+      const html = document.documentElement;
+      const modeToggle = document.getElementById("modeToggle");
+
+      let darkMode = false;
+
+      try {
+        const saved = JSON.parse(localStorage.getItem("miffySiteTheme") || "{}");
+        if (typeof saved.darkMode === "boolean") darkMode = saved.darkMode;
+      } catch (e) {}
+
+      function save() {
+        try {
+          localStorage.setItem("miffySiteTheme", JSON.stringify({ darkMode }));
+        } catch (e) {}
+      }
+
+      function render() {
+        card.dataset.scene = darkMode ? "night" : "lily";
+        html.dataset.mode = darkMode ? "dark" : "light";
+        modeToggle.setAttribute("aria-pressed", String(darkMode));
+      }
+
+      modeToggle.addEventListener("click", () => {
+        darkMode = !darkMode;
+        render();
+        save();
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
